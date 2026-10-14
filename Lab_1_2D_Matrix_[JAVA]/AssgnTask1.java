@@ -31,7 +31,7 @@ class AssgnTask1{
             System.out.print("| ");
 
             for(int j = 0; j < matrix[0].length; j++){
-                System.out.print(matrix[newArrayRow][j] + " |");
+                System.out.print(matrix[newArrayRow][j] + " | ");
             }
             System.out.println();
         }
