@@ -11,7 +11,32 @@ class AssgnTask1{
         //Only the integer row number is to be returned
 
         //TO DO
-        return null;
+        int count = (examWeek - 1) % matrix.length;
+        int AArow = -1;
+
+        for(int i = 0; i < matrix.length; i++){
+            for(int j = 0; j < matrix[0].length; j++){
+                if(matrix[i][j].equals("AA")){
+                    AArow = i;
+                    break;
+                }
+            }
+            if(AArow != -1){
+                break;
+            }
+        }
+
+        for(int i = 0; i < matrix.length; i++){
+            int newArrayRow = ((i - count) + matrix.length) % matrix.length;
+            System.out.print("| ");
+
+            for(int j = 0; j < matrix[0].length; j++){
+                System.out.print(matrix[newArrayRow][j] + " |");
+            }
+            System.out.println();
+        }
+
+        return (AArow + count) % matrix.length + 1;
     }
 
     //DO NOT CHANGE ANY DRIVER CODE BELOW THIS LINE
