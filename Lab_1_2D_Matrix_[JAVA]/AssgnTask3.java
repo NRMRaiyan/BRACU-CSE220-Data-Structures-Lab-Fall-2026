@@ -9,6 +9,29 @@ class AssgnTask3{
         //just print the result inside the function
         
         //TO DO
+        int count = 0;
+        int totalPoints = 0;
+        boolean winGame = false;
+        
+        for(int i = 0; i < arena.length; i++){
+            for(int j = 0; j < arena[0].length; j++){
+                if(arena[i][j] == 1 && arena[i][j] == 0){
+                    break;
+                }
+
+                totalPoints = count * 2;
+
+                if(totalPoints >= 10){
+                    winGame = true;
+                }
+            }
+        }
+
+        if(winGame){
+            System.out.println("Points Gained: " + totalPoints + ". Your team has survived the game.");
+        }else{
+            System.out.println("Points Gained: " + totalPoints + ".  Your team is out.");
+        }
     }
 
     //DO NOT CHANGE ANY DRIVER CODE BELOW THIS LINE
