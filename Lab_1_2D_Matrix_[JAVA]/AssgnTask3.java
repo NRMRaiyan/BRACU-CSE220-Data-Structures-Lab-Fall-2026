@@ -16,12 +16,23 @@ class AssgnTask3{
         for(int i = 0; i < arena.length; i++){
             for(int j = 0; j < arena[0].length; j++){
 
-                if(arena[i][j] == 1 && arena[i][j] == 0){
-                    break;
+                if(arena[i][j] == 1 || arena[i][j] == 0){
+                    continue;
                 }
 
                 if(arena[i][j] % 50 == 0){
-                    
+                    if(i > 0 && arena[i - 1][j] == 2){
+                        count++;
+                    }
+                    if(i < arena.length - 1 && arena[i + 1][j] == 2){
+                        count++;
+                    }
+                    if(j > 0 && arena[i][j - 1] == 2){
+                        count++;
+                    }
+                    if(j < arena[0].length - 1 && arena[i][j + 1] == 2){
+                        count++;
+                    }
                 }
 
                 totalPoints = count * 2;
