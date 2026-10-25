@@ -9,21 +9,57 @@ class AssgnTask4{
 
         //Print the message inside of this method
         //TO DO
-        for(int i = 0; i < board.length; i++){
-            for(int j = 0; j < board[0].length; j++){
-                char temp = 0;
-                
-                if(board.length / 2 == board[0].length / 2){
-                    temp = board[i][j];
-                    board[i][j] = board[i + 1][j];
-                    board[i + 1][j] = board[i + 1][j + 1];
-                    board[i + 1][j + 1] = board[i][j + 1];
-                    board[i][j + 1] = temp;
-                }
-            }
-        }
+        int n = board.length;
+        String output = "";
 
+    // Start from the innermost layer and move outward
+    for (int layer = n / 2 - 1; layer >= 0; layer--) {
+
+        int top = layer;
+        int left = layer;
+        int bottom = n - 1 - layer;
+        int right = n - 1 - layer;
+
+        // Calculate how many times this layer must rotate
+        int rotations = n / 2 - layer;
+
+        // Rotate this layer clockwise
+        for (int r = 0; r < rotations; r++) {
+
+            // Save the last character in the clockwise path
+            Character temp = board[top][left];
+
+            // Shift the left edge upward
+            for (int i = top; i < bottom; i++) {
+                board[i][left] = board[i + 1][left];
+            }
+
+            // Shift the bottom edge leftward
+            for (int j = left; j < right; j++) {
+                board[bottom][j] = board[bottom][j + 1];
+            }
+
+            // Shift the right edge downward
+            for (int i = bottom; i > top; i--) {
+                board[i][right] = board[i - 1][right];
+            }
+
+            // Shift the top edge rightward
+            for (int j = right; j > left + 1; j--) {
+                board[top][j] = board[top][j - 1];
+            }
+
+            // Place the saved character in the top-left corner
+            board[top][left + 1] = temp;
+        }
     }
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            output += board[i][j];
+        }
+    }
+    System.out.println(output);
+}
 
     //DO NOT CHANGE ANY DRIVER CODE BELOW THIS LINE
     public static void main(String[] args){
