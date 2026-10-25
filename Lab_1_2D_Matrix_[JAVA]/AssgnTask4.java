@@ -10,7 +10,7 @@ class AssgnTask4{
         //Print the message inside of this method
         //TO DO
         int n = board.length;
-        String output = "";
+        String finalOutput = "";
 
     // Start from the innermost layer and move outward
     for (int layer = n / 2 - 1; layer >= 0; layer--) {
@@ -21,10 +21,10 @@ class AssgnTask4{
         int right = n - 1 - layer;
 
         // Calculate how many times this layer must rotate
-        int rotations = n / 2 - layer;
+        int rotationsNeeded = n / 2 - layer;
 
         // Rotate this layer clockwise
-        for (int r = 0; r < rotations; r++) {
+        for (int r = 0; r < rotationsNeeded; r++) {
 
             // Save the last character in the clockwise path
             Character temp = board[top][left];
@@ -55,10 +55,10 @@ class AssgnTask4{
     }
     for(int i = 0; i < n; i++){
         for(int j = 0; j < n; j++){
-            output += board[i][j];
+            finalOutput += board[i][j];
         }
     }
-    System.out.println(output);
+    System.out.println(finalOutput);
 }
 
     //DO NOT CHANGE ANY DRIVER CODE BELOW THIS LINE
