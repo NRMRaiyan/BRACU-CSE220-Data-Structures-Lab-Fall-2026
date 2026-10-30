@@ -13,7 +13,7 @@ class AssgnTask4{
         String finalOutput = "";
 
     // Start from the innermost layer and move outward
-    for (int layer = n / 2 - 1; layer >= 0; layer--) {
+    for (int layer = n / 2 - 1; layer >= 0; layer--){
 
         int top = layer;
         int left = layer;
