@@ -9,9 +9,24 @@ public class AssignmentTask1 {
         //You're not suppose to create any new Linked List for this task
         
         //TODO
+        Node head1 = building1;
+        Node head2 = building2;
+
+        while(head1 != null && head2 != null && head1.next != null && head2 != null){
+            if(head1.elem.equals(head2.elem)){
+                return "Similar";
+            }
+            
+            head1 = head1.next;
+            head2 = head2.next;
+        }
+
+        if(head1 ==null && head2 == null){
+            return "Similar";
+        }
 
         //Once you're ready to return the String delete the following line
-        return null;
+        return "Not Similar";
     }
 
     //NOTE: if you find any issue with the driver code please inform AIB
