@@ -7,6 +7,7 @@ class Arr{
         
         int row1 = arr1.length, col1 = arr1[0].length;
         int row2 = arr2.length, col2 = arr1[0].length;
+        
         if( row1!=row2 && col1!=col2 ) return false;
 
         for (int r=0; r<row1; r++) {

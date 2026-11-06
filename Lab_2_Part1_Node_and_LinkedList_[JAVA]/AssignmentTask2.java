@@ -6,8 +6,29 @@ public class AssignmentTask2{
     public static Node organizeBooks(Node head, Integer[] popularity) {
         
         //TO DO
+        for (int i = 0; i < popularity.length - 1; i++) {
 
-        return null; // Remove this when you're ready to return the new head
+            Node current = head;
+
+            for (int j = 0; j < popularity.length - 1 - i; j++) {
+
+                if (popularity[j] < popularity[j + 1]) {
+
+                    // Swap popularity values
+                    Integer temp = popularity[j];
+                    popularity[j] = popularity[j + 1];
+                    popularity[j + 1] = temp;
+
+                    // Swap book names
+                    Object tempElem = current.elem;
+                    current.elem = current.next.elem;
+                    current.next.elem = tempElem;
+                }
+                current = current.next;
+            }
+        }
+        
+        return head; // Remove this when you're ready to return the new head
     }
 
     //NOTE: if you find any issue with the driver code please inform AIB

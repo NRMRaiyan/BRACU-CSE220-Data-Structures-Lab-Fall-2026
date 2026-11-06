@@ -6,15 +6,17 @@ class LinkedList{
 
         if(head == null){
             head = newNode;
+            return;
         }
 
         Node current = head;
 
         while (current.next != null) {
-            current.next = current;
+            current = current.next;
         }
 
-        current = newNode;
+        newNode = current;
+        current.next = newNode;
     }
     public void printList(){
         // TODO: Print all elements from head
