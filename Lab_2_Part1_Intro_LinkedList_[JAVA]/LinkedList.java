@@ -15,7 +15,6 @@ class LinkedList{
             current = current.next;
         }
 
-        newNode = current;
         current.next = newNode;
     }
     public void printList(){
@@ -43,10 +42,10 @@ class LinkedList{
     }
     public void removeFirst(){
         // TODO: Remove the first node
+        head = head.next;
         
     }
     public void removeLast(){
         // TODO: Remove the last node
-
     }
 }
