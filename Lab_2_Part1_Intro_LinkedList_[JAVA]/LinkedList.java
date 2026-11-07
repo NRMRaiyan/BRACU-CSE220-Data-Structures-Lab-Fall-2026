@@ -42,7 +42,8 @@ class LinkedList{
     }
     public void removeFirst(){
         // TODO: Remove the first node
-        head = head.next;
+        head.next = head;
+        head = null;
         
     }
     public void removeLast(){
