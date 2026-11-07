@@ -8,8 +8,40 @@ public class AssignmentTask4{
         //Hint: the Node elements are actually Object, you can type cast them
         //      into int or Integer like the following:
         //        (int)n.elem  or  (Integer)n.elem
+        Node newList = null;
+        Node tail = null;
 
-        return null; // Remove this when you're ready to return the new head
+        Node current1 = head1;
+        Node current2 = head2;
+        Node current3 = head3;
+
+        while (current1 != null) {
+            Node newNode = new Node(current1.elem);
+
+            newNode.next = newList;
+            newList = newNode;
+
+            if (tail == null) {
+                tail = newNode;
+            }
+
+            current1 = current1.next;
+        }
+
+        while (current2 != null && current3 != null) {
+            int sum = (int)current2.elem + (int)current3.elem;
+            int digit = sum % 10;
+
+            Node newNode = new Node(digit);
+
+            tail.next = newNode;
+            tail = newNode;
+
+            current2 = current2.next;
+            current3 = current3.next;
+        }
+
+        return newList; // Remove this when you're ready to return the new head
     }
 
     //NOTE: if you find any issue with the driver code please inform AIB
