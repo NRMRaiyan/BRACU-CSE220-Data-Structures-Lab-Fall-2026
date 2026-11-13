@@ -30,8 +30,20 @@ public class HashTable {
 
     //you need to COMPLETE this method
     private int hashFunction( String key ){
-        // TO DO 
-        return -1; //remove this line
+        // TO DO
+        int keyLength = key.length();
+        int asciiSum = 0;
+
+        if(keyLength % 2 == 0){
+            for(int i = 0; i < keyLength; i += 2){
+                asciiSum += (int)key.charAt(i);
+            }
+        }else{
+            for(int i = 1; i < keyLength - 1; i += 2){
+                asciiSum += (int)key.charAt(i);
+            }
+        }
+        return asciiSum % keyLength; //remove this line
     }
 
     //you need to COMPLETE this method
@@ -40,6 +52,19 @@ public class HashTable {
     //If collision occurs resolve using the steps explained in the question
     public void insert(String key, Integer value){
         // TO DO
+        int idx = hashFunction(key);
+
+        if(ht[idx] == null){
+            ht[idx] = new FruitNode(null , -1);
+        }
+
+        // Prepend after Dummy Head
+        FruitNode newNode = new FruitNode(key, value);
+        FruitNode pred = ht[idx];
+        FruitNode suc = pred.next;
+
+        newNode.next = suc;
+        pred.next = newNode;
     }
 
 }
