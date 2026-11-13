@@ -35,15 +35,15 @@ public class HashTable {
         int asciiSum = 0;
 
         if(keyLength % 2 == 0){
-            for(int i = 0; i < keyLength; i += 2){
+            for(int i = 0; i < keyLength - 2; i += 2){
                 asciiSum += (int)key.charAt(i);
             }
         }else{
-            for(int i = 1; i < keyLength - 1; i += 2){
+            for(int i = 1; i < keyLength - 2; i += 2){
                 asciiSum += (int)key.charAt(i);
             }
         }
-        return asciiSum % keyLength; //remove this line
+        return asciiSum % ht.length; //remove this line
     }
 
     //you need to COMPLETE this method
@@ -55,7 +55,7 @@ public class HashTable {
         int idx = hashFunction(key);
 
         if(ht[idx] == null){
-            ht[idx] = new FruitNode(null , -1);
+            ht[idx] = new FruitNode(null, -1);
         }
 
         // Prepend after Dummy Head
