@@ -51,20 +51,47 @@ public class HashTable {
 	//then inserts it in the proper hashed index
     //If collision occurs resolve using the steps explained in the question
     public void insert(String key, Integer value){
-        // TO DO
-        int idx = hashFunction(key);
+        int index=hashFunction(key);
 
-        if(ht[idx] == null){
-            ht[idx] = new FruitNode(null, -1);
+        if (ht[index]==null) {
+            FruitNode newNode = new FruitNode(key, value);
+            ht[index] = newNode;
+        }else{
+            FruitNode curr=ht[index];
+            while (curr!=null) {
+                if (curr.fruit[0].equals(key)) {
+                    curr.fruit[1]=value;
+                    return ;
+                }
+                else{
+                    curr=curr.next;
+                }
+            }
+
+            curr=ht[index];
+
+            if (value>(Integer)curr.fruit[1]) {
+                FruitNode newNode = new FruitNode(key, value);
+                newNode.next=curr;
+                ht[index]=newNode;
+            }else{
+                while (curr.next!=null) {
+                    FruitNode Next=curr.next;
+                    if (value>(Integer)Next.fruit[1] && Next!=null) {
+                        FruitNode newNode = new FruitNode(key, value);
+                        newNode.next=Next;
+                        curr.next=newNode;
+                        return ;
+                    }
+                    else{
+                        curr=curr.next;
+                    }
+
+                }
+
+                curr.next = new FruitNode(key, value);
+            }
         }
-
-        // Prepend after Dummy Head
-        FruitNode newNode = new FruitNode(key, value);
-        FruitNode pred = ht[idx];
-        FruitNode suc = pred.next;
-
-        newNode.next = suc;
-        pred.next = newNode;
     }
 
 }
