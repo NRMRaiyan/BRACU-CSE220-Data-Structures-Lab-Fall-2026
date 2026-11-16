@@ -30,6 +30,9 @@ public class ArrayQueue {
 
     public boolean isEmpty() {
         // TODO: Implement isEmpty
+        if(size == 0){
+            return true;
+        }
         return false;
     }
 }

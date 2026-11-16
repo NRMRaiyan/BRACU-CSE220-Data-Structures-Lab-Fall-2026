@@ -12,20 +12,38 @@ public class ArrayStack {
 
     public void push(Object element) {
         // TODO: Implement push
+        if (top == stack.length - 1) {
+            System.out.println("Stack Overflow!");
+        }else{
+            top++;
+            stack[top] = element;
+        }
     }
 
     public Object pop() {
         // TODO: Implement pop
+        if (top < 0) {
+            System.out.println("Stack Underflow!");
+        }else{
+            stack[top] = null;
+            top--;
+        }
         return null;
     }
 
     public Object peek() {
         // TODO: Implement peek
-        return null;
+        if(top < 0){
+            return null;
+        }
+        return stack[top];
     }
 
     public boolean isEmpty() {
         // TODO: Implement isEmpty
+        if(top < 0){
+            return true;
+        }
         return false;
     }
     
