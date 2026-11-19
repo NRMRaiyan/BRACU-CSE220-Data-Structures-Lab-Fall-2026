@@ -6,7 +6,35 @@ public class RemoveConsecutiveDuplicates{
     public static String removeConsecDups(String word){
 	// TODO
 	// You MUST create a LinkedListQueue Object to solve this task
-	return null; //remove this line once you're ready
+    LinkedListQueue queue = new LinkedListQueue();
+
+    for(int i = 0; i < word.length(); i++){
+        char c = word.charAt(i);
+        queue.enqueue(c);
+    }
+
+    char lastCharacter = (char)queue.dequeue();
+
+    LinkedListQueue queue2 = new LinkedListQueue();
+
+    queue2.enqueue(lastCharacter);
+
+    while (!(queue.isEmpty())) {
+        char c1 = (char)queue.dequeue();
+
+        if(c1 != lastCharacter){
+            queue2.enqueue(c1);
+            lastCharacter = c1;
+        }
+    }
+
+    String s = "";
+
+    while (!(queue2.isEmpty())) {
+        char ch = (char)queue2.dequeue();
+        s += ch;
+    }
+	return s; //remove this line once you're ready
     }
     
     //DO NOT CHANGE and DO NOT SUBMIT THIS METHOD

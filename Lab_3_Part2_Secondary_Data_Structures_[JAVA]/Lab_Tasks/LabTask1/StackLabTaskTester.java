@@ -5,6 +5,22 @@ public class StackLabTaskTester {
     // NO NEED TO SUBMIT LAB TASK
     public static void removeBlock(Stack stack, int n) {
         // To Do
+        Stack auxillary = new Stack();
+
+        int count = 1;
+
+        while (!(stack.isEmpty())) {
+            int value = stack.pop();
+
+            if(count != n){
+                auxillary.push(value);
+            }
+            count++;
+        }
+
+        while (!(auxillary.isEmpty())) {
+            stack.push(auxillary.pop());
+        }
     }
 
     //DO NOT CHANGE THIS METHOD
