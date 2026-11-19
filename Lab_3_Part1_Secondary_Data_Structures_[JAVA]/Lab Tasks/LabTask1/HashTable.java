@@ -35,11 +35,11 @@ public class HashTable {
         int asciiSum = 0;
 
         if(keyLength % 2 == 0){
-            for(int i = 0; i < keyLength - 2; i += 2){
+            for(int i = 0; i < keyLength; i += 2){
                 asciiSum += (int)key.charAt(i);
             }
         }else{
-            for(int i = 1; i < keyLength - 2; i += 2){
+            for(int i = 1; i < keyLength; i += 2){
                 asciiSum += (int)key.charAt(i);
             }
         }
