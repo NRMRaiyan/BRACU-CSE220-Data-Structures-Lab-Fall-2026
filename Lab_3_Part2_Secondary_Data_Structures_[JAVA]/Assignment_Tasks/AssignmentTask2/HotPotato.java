@@ -5,7 +5,29 @@ public class HotPotato{
 
     public static String hotPotato(String[] players, int k) {
         // TODO: Implement the hot potato logic here
-        return null;
+        LinkedListQueue queue = new LinkedListQueue();
+
+        for(int i = 0; i < players.length; i++){
+            queue.enqueue(players[i]);
+        }
+
+        int remaining = players.length;
+
+        while (remaining > 1) {
+            
+            for(int i = 0; i < k; i++){
+                Object player = queue.dequeue();
+                queue.enqueue(player);
+            }
+
+            String eliminated = (String)queue.dequeue();
+
+            System.out.println(eliminated + " eliminated");
+
+            remaining--;
+        }
+
+        return (String)queue.dequeue();
     }
 
     public static void main(String[] args) {
